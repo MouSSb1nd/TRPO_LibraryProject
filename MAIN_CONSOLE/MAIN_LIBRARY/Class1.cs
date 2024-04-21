@@ -103,9 +103,9 @@ namespace MAIN_LIBRARY
     public class Auditoria
     {
         private string _Name;
-        private Sotrudnik _sotrudnic;
-        private string _Seat = "23";
-        private string _Windows = "2";
+        //private Sotrudnic _sotrudnic;
+        private double _Seat;
+        private double _Windows;
         //private Oborydovanie _oborydovanie; В группе не делается такой вариант
 
         public string Name
@@ -113,20 +113,28 @@ namespace MAIN_LIBRARY
             get { return _Name; }
             set { _Name = value; }
         }
-        public string Seat
+        public double Seat
         {
             get { return _Seat; }
-            set { _Seat = value; }
+            set 
+            {
+                if (value >= 0) { _Seat = value; }
+                else { throw new ArgumentOutOfRangeException(); }
+            }
         }
-        public string Windows
+        public double Windows
         {
             get { return _Windows; }
-            set { _Windows = value; }
+            set 
+            {
+                if (value >= 0) { _Windows = value; }
+                else { throw new ArgumentOutOfRangeException(); }
+            }
         }
-        public Auditoria(string name, Sotrudnic sotrudnic, string seat, /*Oborydovanie oborydovanie,*/ string windows)
+        public Auditoria(string name, /*Sotrudnic sotrudnic,*/ double seat, /*Oborydovanie oborydovanie,*/ double windows)
         {
             _Name = name;
-            _sotrudnic = sotrudnic;
+            //_sotrudnic = sotrudnic;
             _Seat = seat;
             _Windows = windows;
             //_oborydovanie = oborydovanie;
@@ -201,8 +209,8 @@ namespace MAIN_LIBRARY
         private string _sokrachenie;
         private string _chislennost;
         private int _godpostuplenija;
-        private string Sotrudnik _sotrudnic; //Нет варианта 9 (Сотрудник)
-        private string Specialnost _specialnost; //Нет варианта 6 (Специальность)
+        //private string Sotrudnic _sotrudnic; //Нет варианта 9 (Сотрудник)
+        //private string Specialnost _specialnost; //Нет варианта 6 (Специальность)
         public string Nazvanie
         {
             get { return _nazvanie; }
@@ -228,24 +236,24 @@ namespace MAIN_LIBRARY
             }
             get { return _godpostuplenija; }
         }
-        public string Sotrudnik 
-        {
-            get { return _sotrudik; }
-            set { _sotrudnic = value; }
-        }
-        public string Specialnost
-        {
-            get { return _specialnost; }
-            set { _specialnost = value; }
-        }
-        public Group1(string nazvanie, string sokrachenie, string chislennost, int godpostuplenija, Sotrudnik sotrudnic, Specialnost specialnost)
+        //public string Sotrudnik 
+        //{
+        //    get { return _sotrudnic; }
+        //    set { _sotrudnic = value; }
+        //}
+        //public string Specialnost
+        //{
+        //    get { return _specialnost; }
+        //    set { _specialnost = value; }
+        //}
+        public Group1(string nazvanie, string sokrachenie, string chislennost, /*Sotrudnik sotrudnic, Specialnost specialnost,*/ int godpostuplenija)
         {
             Nazvanie = nazvanie;
             Sokrachenie = sokrachenie;
             Chislennost = chislennost;
             Godpostuplenija = godpostuplenija;
-            _sotrudnic = sotrudnic;
-            _specialnost = specialnost;
+            //_sotrudnic = sotrudnic;
+            //_specialnost = specialnost;
 
         }
     }
@@ -323,7 +331,7 @@ namespace MAIN_LIBRARY
         private string EndPara;
         private string StartChill;
         private string EndChill;
-        private string Smena _smena;
+        private Smena _smena;
         public string ParaStart
         {
             get
