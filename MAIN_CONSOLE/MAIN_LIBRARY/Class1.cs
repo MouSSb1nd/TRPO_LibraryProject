@@ -13,7 +13,6 @@ using System.Text.RegularExpressions;
 
 namespace MAIN_LIBRARY
 {
-    
     /// <summary>
     /// Класс должность
     /// Вариант 10
@@ -24,24 +23,20 @@ namespace MAIN_LIBRARY
         private string _name;
         private double _salary;
         private Podrozdelenie _podrozdelenie; //Балванка под пока не существующий класс ПОДРАЗДЕЛЕНИЕ
-
         public string Name
         {
             set { _name = value; }
             get { return _name; }
         }
-
         public double Salary
         {
             set
             {
                 if (value >= 0) { _salary = value; }
                 else { throw new ArgumentOutOfRangeException(); }
-
             }
             get { return _salary; }
         }
-
         public Doljnost(string name, double salary, Podrozdelenie podrozdelenie)
         {
             Name = name;
@@ -49,7 +44,6 @@ namespace MAIN_LIBRARY
             _podrozdelenie = podrozdelenie;
         }
     }
-
     /// <summary>
     /// Класс Студент
     /// Вариант 5
@@ -76,8 +70,6 @@ namespace MAIN_LIBRARY
             get { return otchestvo; }
             set { otchestvo = value; }
         }
-
-
         private DateTime dateofbirth;
         public DateTime Dateofbirth
         {
@@ -232,7 +224,6 @@ namespace MAIN_LIBRARY
             {
                 if (value >= 0) { _godpostuplenija = value; }
                 else { throw new ArgumentOutOfRangeException(); }
-
             }
             get { return _godpostuplenija; }
         }
@@ -254,7 +245,6 @@ namespace MAIN_LIBRARY
             Godpostuplenija = godpostuplenija;
             //_sotrudnic = sotrudnic;
             //_specialnost = specialnost;
-
         }
     }
     /// <summary>
@@ -304,7 +294,6 @@ namespace MAIN_LIBRARY
         public Smena(string name)
         {
             Name = name;
-
         }
     }
     /// <summary>
@@ -384,7 +373,6 @@ namespace MAIN_LIBRARY
             EndChill = endchill;
             _smena = smena;
         }
-
     }
     /// <summary>
     /// Класс Сотрудник 
@@ -394,13 +382,9 @@ namespace MAIN_LIBRARY
     public class Sotrudnic
     {
         private string _Surname;
-
         private string _Name;
         private string _Otchestvo;
         private Doljnost doljnost;
-
-
-
         public string Surname
         {
             get { return _Surname; }
@@ -424,14 +408,11 @@ namespace MAIN_LIBRARY
         public Sotrudnic(string surname,  string name,  string otchestvo, Doljnost doljnost)
         {
             _Surname = name;
-            
             _Name = name;
             _Otchestvo= otchestvo;
             _doljnost= doljnost;
-            
         }
     }
-
 }
     
 
